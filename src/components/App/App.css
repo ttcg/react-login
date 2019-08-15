@@ -1,0 +1,18 @@
+.footer {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #f5f5f5;
+  border-top: 1px solid #bcc5ce;
+}
+
+.content {
+  margin-top: 10px;
+  padding-bottom: 2.5rem;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}

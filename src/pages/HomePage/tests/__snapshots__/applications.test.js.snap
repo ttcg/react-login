@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Applications 1`] = `
+<Fragment>
+  <Container
+    fluid={false}
+  >
+    <Bootstrap(Row)>
+      <Col
+        md={8}
+      >
+        <ApplicationRow
+          data={
+            Object {
+              "applicationName": "Test App1",
+              "applicationTypeId": 1,
+            }
+          }
+          handleAppButtonClick={[Function]}
+          key="0"
+        />
+        <ApplicationRow
+          data={
+            Object {
+              "applicationName": "Test App2",
+              "applicationTypeId": 2,
+            }
+          }
+          handleAppButtonClick={[Function]}
+          key="1"
+        />
+      </Col>
+      <Col
+        md={4}
+        style={
+          Object {
+            "paddingTop": "50px",
+          }
+        }
+      >
+        <FormGroup
+          controlId="formBasicChecbox"
+        >
+          <FormCheck
+            checked={true}
+            className="font-weight-bold"
+            disabled={false}
+            inline={false}
+            isInvalid={false}
+            isValid={false}
+            label="Post To Original Url?"
+            onChange={[Function]}
+            title=""
+            type="checkbox"
+          />
+          Uncheck if you want to post to localhost
+        </FormGroup>
+      </Col>
+    </Bootstrap(Row)>
+  </Container>
+</Fragment>
+`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header 1`] = `
+<Bootstrap(undefined)
+  bg="dark"
+  variant="dark"
+>
+  <Link
+    className="navbar-brand"
+    to="/"
+  >
+    React-Login
+  </Link>
+  <NavbarToggle
+    aria-controls="basic-navbar-nav"
+    label="Toggle navigation"
+  />
+  <NavbarCollapse
+    id="basic-navbar-nav"
+  >
+    <Nav
+      className="mr-auto"
+      fill={false}
+      justify={false}
+    >
+      <NavLinkWrapper
+        exact={true}
+        to="/"
+      >
+        Home
+      </NavLinkWrapper>
+    </Nav>
+  </NavbarCollapse>
+  <NavbarText>
+    <span
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      test@yopmail.com
+    </span>
+     
+     
+    <button
+      className="btn btn-sm btn-outline-light my-2 my-sm-0"
+    >
+      Logout
+    </button>
+  </NavbarText>
+</Bootstrap(undefined)>
+`;

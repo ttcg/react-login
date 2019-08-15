@@ -1,0 +1,2 @@
+export const AJAX_BEGIN_CALL = 'AJAX_BEGIN_CALL';
+export const RESET_ALL_STATE = 'RESET_ALL_STATE';

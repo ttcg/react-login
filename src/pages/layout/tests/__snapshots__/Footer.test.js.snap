@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer 1`] = `
+<footer
+  className="fixed-bottom footer"
+>
+  <Container
+    fluid={false}
+  >
+    <span
+      className="text-muted"
+    >
+      © 
+      <t
+        ago={false}
+        calendar={false}
+        decimal={false}
+        element={null}
+        filter={[Function]}
+        format="YYYY"
+        fromNow={false}
+        interval={60000}
+        local={false}
+        onChange={[Function]}
+        titleFormat=""
+        toNow={false}
+        unit={null}
+        unix={false}
+        utc={false}
+        withTitle={false}
+      />
+       TTCG
+    </span>
+  </Container>
+</footer>
+`;

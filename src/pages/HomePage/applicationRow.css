@@ -1,0 +1,40 @@
+.wrapper {
+    display: table;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.image-wrapper {
+    border: 2px solid #E7E9EC;
+    color: #E75112;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+
+.image-wrapper:hover {
+    border: 2px solid #92959b;
+}
+
+.text-wrapper {
+    color: #4e545e;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 1.5em;
+    padding-left: 10px;
+}
+
+.applicationText {    
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 0.7em; 
+}
+
+.text-wrapper:hover {
+    color: #000;
+}
