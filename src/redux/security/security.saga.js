@@ -38,7 +38,6 @@ export function* authenticateUserSaga({ payload }) {
         }
     }
     catch (error) {
-        console.log(error)
         yield put(authenticateUser.failure({ errorMessage: error.data.error }));
     }
 }

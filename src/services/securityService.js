@@ -1,6 +1,11 @@
 import axios from 'axios';
 import uuid from 'uuid';
 import getServiceUrl from './serviceUrl'
+import {
+    mockAuthenticate,
+    mockGetAccessToken,
+    mockGetUserApplications
+} from './mockSecurityService'
 
 const client = axios.create({
     headers: {
@@ -49,12 +54,14 @@ function authenticate(data) {
         "password": data.password
     }
 
+    log(getServiceUrl().commandUrl, postObject);
+
     // return client
     //     .post(getServiceUrl().commandUrl, postObject)
     //     .then(onSuccess)
     //     .catch(onError);
 
-    return fakeAuthenticate(data);
+    return mockAuthenticate(postObject);
 }
 
 function getAccessToken(data) {
@@ -65,10 +72,14 @@ function getAccessToken(data) {
         "token": data
     }
 
-    return client
-        .post(getServiceUrl().commandUrl, postObject)
-        .then(onSuccess)
-        .catch(onError);
+    log(getServiceUrl().commandUrl, postObject);
+
+    // return client
+    //     .post(getServiceUrl().commandUrl, postObject)
+    //     .then(onSuccess)
+    //     .catch(onError);
+
+    return mockGetAccessToken(postObject);
 }
 
 function logoutUser(data) {
@@ -79,10 +90,14 @@ function logoutUser(data) {
         "identityToken": data
     }
 
-    return client
-        .post(getServiceUrl().commandUrl, postObject)
-        .then(onSuccess)
-        .catch(onError);
+    log(getServiceUrl().commandUrl, postObject);
+
+    // return client
+    //     .post(getServiceUrl().commandUrl, postObject)
+    //     .then(onSuccess)
+    //     .catch(onError);
+
+    return;
 }
 
 function getUserApplications(data) {
@@ -93,10 +108,21 @@ function getUserApplications(data) {
         "identityToken": data
     }
 
-    return client
-        .post(getServiceUrl().queryUrl, postObject)
-        .then(onSuccess)
-        .catch(onError);
+    log(getServiceUrl().queryUrl, postObject);
+
+    // return client
+    //     .post(getServiceUrl().queryUrl, postObject)
+    //     .then(onSuccess)
+    //     .catch(onError);
+
+    return mockGetUserApplications(postObject);
+}
+
+const log = (url, data) => {
+    console.group();
+    console.log('url: ', url);
+    console.log('data: ', data);
+    console.groupEnd();
 }
 
 const SecurityService = {
@@ -109,20 +135,3 @@ const SecurityService = {
 
 export default SecurityService;
 
-function fakeAuthenticate(data) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (data.email === "ttcg@gmail.com" && data.password === "ttcgreact") {
-                return resolve({
-                    succeeded: true,
-                    token: 'ttcg12345'
-                })
-            }
-            else {
-                return resolve({
-                    succeeded: false
-                })
-            }
-        }, 1000)
-    })
-}

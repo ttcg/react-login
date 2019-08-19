@@ -58,7 +58,7 @@ export function Applications({
     const handleAppButtonClick = (data) => {
 
         const params = {
-            'OwnerId': data.applicationOwnerId,
+            'UserId': data.applicationUserId,
             'ApplicationType': data.applicationTypeId,
             'identityToken': accessToken
         };

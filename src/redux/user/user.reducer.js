@@ -19,7 +19,7 @@ export default function userReducer(state = initialState, { payload, type }) {
         case getUserApplications.SUCCESS: {
             return {
                 ...state,
-                applications: payload.userApplications,           
+                applications: payload.applications,           
                 error: null,                
                 isLoading: false
             };
