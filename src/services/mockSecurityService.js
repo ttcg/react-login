@@ -1,10 +1,21 @@
+import jwt from 'jsonwebtoken';
+import moment from 'moment'
+
+const secretKey = 'ttcg-react-app'
+
 export function mockAuthenticate(data) {
     return new Promise((resolve) => {
         setTimeout(() => {
             if (data.email === "ttcg@gmail.com" && data.password === "ttcgreact") {
+
+                var objToSign = {
+                    "userid": "fakeId123",
+                    "exp": parseInt(moment().add(20, 'm').format('X'))
+                }
+
                 return resolve({
                     succeeded: true,
-                    token: 'ttcg12345'
+                    token: jwt.sign(objToSign, secretKey)
                 })
             }
             else {
@@ -18,7 +29,12 @@ export function mockAuthenticate(data) {
 
 export function mockGetAccessToken(data) {
     return new Promise((resolve, reject) => {
-        return resolve({ accessToken: 'access123' })
+        var objToSign = {
+            "userid": "fakeId123",
+            "exp": parseInt(moment().add(20, 'm').format('X'))
+        }
+
+        return resolve({ accessToken: jwt.sign(objToSign, secretKey) })
     })
 }
 
