@@ -1,16 +1,16 @@
 import {
     authenticateUser,    
     getAccessToken,
-    logoutUser,
-    populateSecurityData
+    logoutUser
 } from './security.action';
 import { AuthService } from '../../services'
 
 const initialState = {
     isLoading: false,
-    isLoggedIn: false,
+    isLoggedIn: AuthService.isAuthenticated(),
     token: AuthService.getToken(),
-    accessToken: AuthService.getAccessToken()
+    accessToken: AuthService.getAccessToken(),
+    email: (AuthService.getUserDetail() ? AuthService.getUserDetail().email : undefined)
 };
 
 export default function securityReducer(state = initialState, { payload, type }) {
@@ -60,13 +60,6 @@ export default function securityReducer(state = initialState, { payload, type })
                 ...state,
                 error: null,
                 isLoading: true
-            };
-        }
-        case populateSecurityData.TRIGGER: {
-            return {
-            ...state,
-            isLoggedIn: payload.isLoggedIn,
-            email: payload.email
             };
         }
         default:

@@ -13,7 +13,13 @@ const appReducer = combineReducers({
 
 const rootReducer = (state, action) => {
     if (action.type === RESET_ALL_STATE) {
-        state = { };
+        state = { 
+            ...state,
+            Security: {
+                isLoading: false
+            },
+            AjaxCounter: 0
+        };
       }
     return appReducer(state, action)
 }

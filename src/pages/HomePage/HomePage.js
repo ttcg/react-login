@@ -18,7 +18,7 @@ export const HomePage = ({
 
     return (        
         <Container>            
-            {
+            {                
                 !isLoggedIn &&
                 <SignIn
                     error={error}
@@ -26,7 +26,6 @@ export const HomePage = ({
                     isLoading={isLoading} />
             }
 
-            {/* <Applications /> */}
             {isLoggedIn && accessToken &&
                 <Applications accessToken={accessToken} />
             }

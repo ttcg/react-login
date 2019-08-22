@@ -6,16 +6,11 @@ const secretKey = 'ttcg-react-app'
 export function mockAuthenticate(data) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            if (data.email === "ttcg@gmail.com" && data.password === "ttcgreact") {
-
-                var objToSign = {
-                    "userid": "fakeId123",
-                    "exp": parseInt(moment().add(20, 'm').format('X'))
-                }
+            if (data.email === "ttcg@gmail.com" && data.password === "ttcgreact") {                
 
                 return resolve({
                     succeeded: true,
-                    token: jwt.sign(objToSign, secretKey)
+                    token: jwt.sign(getObjectToSign(), secretKey)
                 })
             }
             else {
@@ -29,12 +24,8 @@ export function mockAuthenticate(data) {
 
 export function mockGetAccessToken(data) {
     return new Promise((resolve, reject) => {
-        var objToSign = {
-            "userid": "fakeId123",
-            "exp": parseInt(moment().add(20, 'm').format('X'))
-        }
 
-        return resolve({ accessToken: jwt.sign(objToSign, secretKey) })
+        return resolve({ accessToken: jwt.sign(getObjectToSign(), secretKey) })
     })
 }
 
@@ -78,3 +69,8 @@ export function mockGetUserApplications(data) {
         }, 1000)
     })
 }
+
+const getObjectToSign = () => ({
+    "userid": "fakeId123",
+    "exp": parseInt(moment().add(20, 'm').format('X'))
+})
