@@ -1,4 +1,4 @@
-import axios from 'axios';
+//import axios from 'axios';
 import uuid from 'uuid';
 import getServiceUrl from './serviceUrl'
 import {
@@ -7,43 +7,43 @@ import {
     mockGetUserApplications
 } from './mockSecurityService'
 
-const client = axios.create({
-    headers: {
-        'Content-Type': 'application/json'
-    }
-});
+// const client = axios.create({
+//     headers: {
+//         'Content-Type': 'application/json'
+//     }
+// });
 
-function onSuccess(response) {
-    return response.data;
-}
+// function onSuccess(response) {
+//     return response.data;
+// }
 
-function onError(error) {
-    console.error('Request Failed:', error.config);
+// function onError(error) {
+//     console.error('Request Failed:', error.config);
 
-    let errorObj = {};
+//     let errorObj = {};
 
-    if (error.response) {
-        // Request was made but server responded with something
-        // other than 2xx
-        console.error('Status:', error.response.status);
-        console.error('Data:', error.response.data);
-        console.error('Headers:', error.response.headers);
+//     if (error.response) {
+//         // Request was made but server responded with something
+//         // other than 2xx
+//         console.error('Status:', error.response.status);
+//         console.error('Data:', error.response.data);
+//         console.error('Headers:', error.response.headers);
 
-        errorObj = error.response;
-    } else {
-        // Something else happened while setting up the request
-        // triggered the error
-        console.error('Error Message:', error.message);
+//         errorObj = error.response;
+//     } else {
+//         // Something else happened while setting up the request
+//         // triggered the error
+//         console.error('Error Message:', error.message);
 
-        errorObj = {
-            data: {
-                error: error.message
-            }
-        }
-    }
+//         errorObj = {
+//             data: {
+//                 error: error.message
+//             }
+//         }
+//     }
 
-    return Promise.reject(errorObj);
-}
+//     return Promise.reject(errorObj);
+// }
 
 function authenticate(data) {
 
